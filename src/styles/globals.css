@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-obsidian: #060907;
+  --bg-forest-deep: #0b120d;
+  --text-ivory: #f4efe4;
+  --text-sage-muted: #9ba89d;
+  --accent-gold: #d4af37;
+  --accent-emerald: #78c88a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg-obsidian);
+  color: var(--text-ivory);
+  scroll-behavior: auto;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-obsidian);
+  color: var(--text-ivory);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom subtle luxury scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060907;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.65);
+}
+
+@keyframes students-frame-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.08) translateX(5%);
+    filter: saturate(0.3) brightness(1.6);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    filter: saturate(1) brightness(1);
+  }
+}
+
+@keyframes students-finale-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.students-frame {
+  animation: students-frame-in 420ms cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
+
+.students-finale {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.students-finale-visible {
+  animation: students-finale-in 1.2s 200ms cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+}
+
+.students-grain {
+  opacity: 0.1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.7) 0.6px, transparent 0.6px);
+  background-size: 5px 5px;
+  mix-blend-mode: soft-light;
+}
+
+@keyframes golden-shower-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -12vh, 0) scale(0.6);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(12vw, 112vh, 0) scale(1);
+  }
+}
+
+@keyframes induction-copy-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.golden-particle {
+  position: absolute;
+  top: -12vh;
+  width: 2px;
+  height: 18px;
+  background: linear-gradient(to bottom, transparent, #ffe59e, #d4af37);
+  box-shadow: 0 0 12px #d4af37;
+  animation: golden-shower-fall linear infinite;
+}
+
+.induction-copy {
+  animation: induction-copy-in 1.8s 300ms cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
